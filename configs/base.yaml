@@ -2,12 +2,20 @@
 log_level: "DEBUG"
 
 game:
-  window_title: "GameWindow"
+  window_title: "HoYoPlay"
   resolution: [640, 480]
   borderless: true
 
 bot:
-  fps_limit: 25
+  fps_limit: 15
   action_delay_min: 0.1
   action_delay_max: 0.3
   error_retry_count: 3
+
+perception:
+  capture_region: [0, 0, 640, 480]
+  target_fps: 15
+  yolo_model_path: "models/yolo/game_v1.onnx"
+  confidence_threshold: 0.5
+  iou_threshold: 0.5
+  device: "cuda"

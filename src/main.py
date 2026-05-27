@@ -5,6 +5,8 @@ from src.core.config import Config
 from src.core.logger import setup_logger, logger
 from src.core.event_bus import EventBus
 from src.core.state_machine import StateMachine, State, Transition
+from src.perception.screen_capture import ScreenCapture
+from src.perception.object_detector import ObjectDetector
 
 async def main():
     cfg = Config.load(Path("../configs/base.yaml"))
@@ -14,15 +16,19 @@ async def main():
     bus = EventBus()
     sm = StateMachine(bus)
 
-    daily_found = False
-    def mark_daily_found():
-        nonlocal daily_found
-        daily_found = True
+    capture = ScreenCapture(cfg, bus)
+    detector = ObjectDetector(cfg, bus)
 
+    asyncio.create_task(capture.run())
+    await detector.run_loop()
+
+    bus.subscribe("objects_detected", lambda e: logger.debug(
+        f"Detected: {len(e.payload['detections'])} objects ({e.payload['latency_ms']:.1f}ms)"))
+
+    # FSM
     sm.add_transition(Transition(State.IDLE, State.LOGIN, condition=lambda: True))
     sm.add_transition(Transition(State.LOGIN, State.NAVIGATE_TO_DAILY, condition=lambda: True))
-    sm.add_transition(Transition(State.NAVIGATE_TO_DAILY, State.IDLE,
-                                condition=lambda: daily_found, action=mark_daily_found))
+    sm.add_transition(Transition(State.NAVIGATE_TO_DAILY, State.IDLE, condition=lambda: True))
 
     try:
         await sm.run(tick_interval=0.5)
