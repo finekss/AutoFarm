@@ -33,7 +33,7 @@ def check_package(name: str, min_version: Optional[str] = None,
     Check if package is installed and meets version requirements.
 
     Args:
-        name: Package name as in pip/requirements.txt
+        name: Package name as in /requirements.txt
         min_version: Minimum required version (e.g., "2.3.0")
         import_name: Module name for import (if different from package name)
         optional: If True, failure shows warning instead of error
@@ -136,7 +136,7 @@ def print_summary(all_checks: list[bool]) -> None:
         print(f"\n{Colors.BOLD}To fix:{Colors.END}")
         print(f"  1. Activate virtual environment: .venv\\Scripts\\activate")
         print(f"  2. Install remaining deps: pip install -r requirements.txt")
-        print(f"  3. Re-run this check: python .\\tests\\RequirementsCheck.py")
+        print(f"  3. Re-run this check: python .\\tests\\requirements_check.py")
         print(f" If it still not pass this test check .\\README.md")
 
     print(f"{Colors.BOLD}{'=' * 60}{Colors.END}")

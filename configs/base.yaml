@@ -1,0 +1,13 @@
+﻿project_root: "."
+log_level: "DEBUG"
+
+game:
+  window_title: "GameWindow"
+  resolution: [640, 480]
+  borderless: true
+
+bot:
+  fps_limit: 25
+  action_delay_min: 0.1
+  action_delay_max: 0.3
+  error_retry_count: 3
