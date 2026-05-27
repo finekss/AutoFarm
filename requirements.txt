@@ -1,0 +1,68 @@
+# ==========================================
+#  Core & Architecture
+# ==========================================
+pydantic>=2.8,<3.0
+omegaconf>=2.3
+pyyaml>=6.0
+loguru>=0.7
+rich>=13.7
+typing-extensions>=4.12
+
+# ==========================================
+#  Screen Capture & Input Emulation
+# ==========================================
+mss>=9.0
+pydirectinput>=1.0
+pywin32>=306
+pynput>=1.7
+
+# ==========================================
+#  Computer Vision & Preprocessing
+# ==========================================
+opencv-python>=4.9
+ultralytics>=8.2
+numpy>=1.26,<2.0
+pillow>=10.3
+scikit-image>=0.23
+easyocr>=1.7
+pytesseract>=0.3
+
+# ==========================================
+#  Reinforcement Learning & Environment
+# ==========================================
+gymnasium>=0.29
+stable-baselines3>=2.3
+shimmy>=1.3
+pygame>=2.5
+
+# ==========================================
+#  Deep Learning & Inference
+# ==========================================
+torch
+torchvision
+torchaudio
+onnx>=1.16
+onnxruntime-gpu>=1.18
+accelerate>=0.30
+
+# ==========================================
+#  Data, Tracking & Utilities
+# ==========================================
+pandas>=2.2
+pyarrow>=16.0
+scikit-learn>=1.4
+wandb>=0.17
+mlflow>=2.13
+tqdm>=4.66
+click>=8.1
+
+# ==========================================
+#  Dev, Testing & Linting
+# ==========================================
+pytest>=8.2
+pytest-asyncio>=0.23
+pytest-mock>=3.14
+ruff>=0.4
+black>=24.4
+mypy>=1.10
+pre-commit>=3.7

@@ -1,0 +1,92 @@
+# ==========================================
+#  Python & Package Management
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+*.egg
+.venv/
+venv/
+env/
+*.lock
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+
+# ==========================================
+# ️ IDE & Editor
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ==========================================
+#  OS & System
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# ==========================================
+#  Game Automation Specific
+# ==========================================
+# Сырые записи, скриншоты, логи сессий
+data/raw/
+data/recordings/
+captures/
+screenshots/
+*.parquet
+*.csv
+*.json
+
+# Логи работы бота, отладочные трейсы
+logs/
+*.log
+
+# Эмуляция ввода / конфиги с токенами/путями к игре
+config/secrets.yaml
+config/local.yaml
+.env
+.env.*
+
+# ==========================================
+#  ML & Training Artifacts
+# ==========================================
+# Веса моделей (YOLO, политики RL, препроцессоры)
+models/*.pt
+models/*.onnx
+models/*.engine
+models/*.bin
+models/*.safetensors
+
+# Чекпоинты обучения, логи фреймворков
+checkpoints/
+runs/
+lightning_logs/
+wandb/
+mlruns/
+tensorboard/
+
+# Кэш датасетов и оптимизаторов
+.cache/
+torch_hub_cache/
+ultralytics/
+
+# ==========================================
+#  Docker & CI
+# ==========================================
+.dockerignore
+Dockerfile.*
+*.dockerfile
